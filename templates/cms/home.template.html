@@ -1,0 +1,159 @@
+<div class="row col-xs-12 no-pad">
+	[%if [@config:show_home_ads@]%]
+		[%advert type:'text' template:'carousel-bg' limit:'10' ad_group:''%]
+			[%param *header%]
+				<div id="homepageCarousel" class="carousel slide">
+<!--					[%if [@total_showing@] > 1%]
+						<ol class="carousel-indicators">
+							[%site_value id:'counter' type:'load'/%]
+						</ol>
+					[%/if%]-->
+					<div class="carousel-inner">
+			[%/param%]
+			[%param *footer%]
+					</div>
+					[%if [@total_showing@] > 1%]
+						<a class="left carousel-control" href="#homepageCarousel" data-slide="prev">
+							<span class="fa fa-chevron-left"></span>
+						</a>
+						<a class="right carousel-control" href="#homepageCarousel" data-slide="next">
+							<span class="fa fa-chevron-right"></span>
+						</a>
+					[%/if%]
+				</div>
+			[%/param%]
+			[%param *ifempty%]
+				<a class="neto-placeholder neto-placeholder-rotator btn-loads" data-loading-text="<i class='fa fa-spinner fa-spin' style='font-size: 14px'></i>" href="[@config:home_url@]/_cpanel?item=adw&page=view&id=New&plan_id=1">
+					Click to add a banner<br/>
+				</a>
+			[%/param%]
+		[%/advert%]
+	[%/if%]
+</div>
+<div class="row col-xs-12">
+
+</div>
+	<div id="homepage-content" class="pad">[@page_content@]</div>	
+	[%if [@config:show_home_ads@]%]
+		[%advert type:'product' limit'16' template:'slick' ad_group:''%]
+			[%param *header%]
+				<div class="Block row pad">
+				<h3>Featured Products
+                <div class="arrow"> </div>
+                </h3>
+                <div class="slick-carousel responsive">
+			[%/param%]
+			[%param footer%]
+            	</div>		
+				</div>
+			[%/param%]
+			[%param *ifempty%]
+				[%random_products category:'0' template:'' limit:'8'%]
+					[%param *header%]
+						<hr />
+						<div class="row">
+					[%/param%]
+					[%param *footer%]
+						</div>
+					[%/param%]
+				[%/random_products%]
+			[%/param%]
+		[%/advert%]
+	[%/if%]
+	<div id="info" class="col-xs-12">
+		<div id="info-container" class="row">
+			[%content_zone id:'shipping'/%]
+			
+			[%content_zone id:'advice'/%]
+			
+			[%content_zone id:'vaping'/%]
+			
+		</div>
+	</div>
+	
+	<div id="new-products" class="Block row pad">
+		[%thumb_list type:'products' template:'slick' sortby:'new_arrivals' filter_category:'0' limit:'16'%]
+		    [%param *header%]
+		    <h3>New Products
+            <div class="arrow"> </div>
+            </h3>
+            <div class="slick-carousel responsive2">
+		    [%/param%]
+		    [%param *footer%]
+		    </div>
+		    [%/param%]
+		[%/thumb_list%]
+	</div>
+	
+</div>
+<div id="offers" class="col-xs-12" style="background-image:url('[%ntheme_asset%]/img/home-hero-bg.jpg[%/ntheme_asset%]')">
+	<div class="row pad">
+        <div class="col-xs-12 col-md-4">
+			[%advert type:'text' template:'h3andp' limit:'1' ad_group:'home-offers'%]
+                [%param *header%]
+                    <div class="row">
+                [%/param%]
+                [%param *footer%]
+                    </div>
+                [%/param%]
+            [%/advert%]
+		</div>
+        <div class="col-xs-12 col-md-4"> 
+			[%advert type:'text' template:'h3andp' limit:'1' ad_group:'home-offers'%]
+                [%param *header%]
+                    <div class="row">
+                [%/param%]
+                [%param *footer%]
+                    </div>
+                [%/param%]
+            [%/advert%]
+		</div>
+        <!--carousel-->
+        <div class="col-xs-12 col-md-4"> 
+			[%advert type:'text' template:'carousel-middle' limit:'10' ad_group:'home-offers'%]
+    [%param *header%]
+        <div id="homepageCarousel-middle" class="carousel slide carousel-middle">
+            <div class="carousel-inner">
+    [%/param%]
+    [%param *footer%]
+            </div>
+            [%if [@total_showing@] > 1%]
+                <a class="left middle-carousel-control" href="#homepageCarousel-middle" data-slide="prev">
+                    <span class="fa fa-chevron-left"></span>
+                </a>
+                <a class="right middle-carousel-control" href="#homepageCarousel-middle" data-slide="next">
+                    <span class="fa fa-chevron-right"></span>
+                </a>
+            [%/if%]
+        </div>
+    [%/param%]
+    [%param *ifempty%]
+        <a class="neto-placeholder neto-placeholder-rotator btn-loads" data-loading-text="<i class='fa fa-spinner fa-spin' style='font-size: 14px'></i>" href="[@config:home_url@]/_cpanel?item=adw&page=view&id=New&plan_id=1">
+            Click to add a banner<br/>
+        </a>
+    [%/param%]
+[%/advert%]
+		</div>
+        <!--end carousel-->
+     </div>
+</div>
+  
+<div id="testimonials" class="row pad">
+[%thumb_list type:'content' content_type:'testimonials' limit:'16'%]
+    [%param *header%]
+        <h3>What Our Customers Say</h3>
+        <div class="slick-carousel responsive3">
+    [%/param%]
+    [%param *body%]
+        <div class="col-sm-4 testimonial">
+            <blockquote class="testimonial-bubble">
+                <p>[@content_description1@]</p>
+            </blockquote>
+            <footer class="testimonial-name"><div class="triangle-down"></div>[@content_short_description1@]</footer>
+        </div>
+    [%/param%]
+    [%param *footer%]
+        </div>
+    [%/param%]
+[%/thumb_list%]
+</div>
